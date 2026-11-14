@@ -1,0 +1,30 @@
+# Backend
+
+Install Flask, Authlib and psycopg with `python3 -m pip install -r backend/requirements-postgres.txt`, start PostgreSQL, configure Auth0 using [AUTH0_SETUP.md](../AUTH0_SETUP.md), then run from the application folder: `python3 backend/server.py`. Visit http://127.0.0.1:8000. The server reads `DATABASE_URL` or the ignored `.env.local` file. SQLite remains available to isolated exchange unit tests; the authenticated app requires PostgreSQL.
+
+## PostgreSQL and Liquibase
+
+Liquibase creates and tracks tables in the private `paperlane` schema; Flask does not create PostgreSQL tables at startup. Run `python3 scripts/liquibase.py update` with the native Liquibase CLI before starting the app on a new database. A remote connection defaults to TLS unless its URL specifies `sslmode`. Keep the URL in the server's secret manager; never put it in Vite variables or browser code. For Supabase, use a direct or session-pooler connection for this persistent Python process. [Connection modes](https://supabase.com/docs/guides/database/connecting-to-postgres). Full setup is in [DATABASE_SETUP.md](../DATABASE_SETUP.md).
+
+To import a legacy SQLite file into a new empty PostgreSQL database, stop the app, run Liquibase, back up the SQLite file, then run `python3 backend/migrate_sqlite_to_postgres.py --check` followed by the same command without `--check`. The copy refuses existing target data and leaves SQLite unchanged. Do not run it against a populated database.
+
+**Do not publish this server yet.** Authenticated users now have separate PostgreSQL account schemas and revocable sessions. The current quote engine is still an in-process simulator, and a second server process would create conflicting price writers. The ledger still uses floating-point money. See [PUBLIC_ARCHITECTURE.md](../PUBLIC_ARCHITECTURE.md) for the remaining public design.
+
+Run tests: `python3 -m unittest discover -s backend -v`.
+
+`GET /api/report` provides the complete persisted fill history and matched position closures, latest first. It is read-only and is not capped at the dashboard's 300 recent fills. Closed results use the same weighted-average entry basis as the account ledger. Entry and exit fees are allocated proportionally to quantities closed, including reversals. Entry time denotes the start of the average-cost position; additions can have later fill times visible in the fill history. Gross P&L excludes fees. Net realised P&L deducts all paid fees, including fees on positions still open, and matches the account ledger. Closed net P&L deducts only fees allocated to closed quantities: `net_realized_pnl = closed_net_pnl - open_entry_fees`. Internal fee allocations retain fractional paise to avoid cumulative rounding loss; consumers should format monetary values for display.
+
+`GET /api/investing/overview` is a read-only view of the signed-in user's existing paper account. It includes only positive-quantity equity positions in its holding totals and allocation percentages; short equities, options, and cash are excluded. Candidates are active synthetic equity instruments, with the first and last times of any sampled history. This is not a separate investment wallet, a long-term return series, or a fundamentals feed. Research claims such as earnings growth, valuation, or multibagger potential require a separate licensed or otherwise authorized data source and explicit methodology.
+
+PostgreSQL stores records and latest quotes/history. Keep a separate, regularly tested database backup. Pending orders are cancelled on restart to avoid filling an unattended order after an interruption. Reset deletes all orders, positions, trades and journal notes and restores ₹10,00,000 virtual cash.
+
+## Explicit simulation assumptions
+
+- Quotes are synthetic and updated every two seconds, including outside actual market hours. There is no live exchange feed and no broker connectivity. All metadata, lot sizes and the placeholder expiry of 2099-12-31 are illustrative.
+- Market buys fill at ask and sells at bid. Limit orders execute only at matching bid/ask, including immediately if marketable. Stop-limit orders reserve funds/margin immediately and trigger when synthetic last price is at/above the buy trigger or at/below the sell trigger; thereafter they follow the same limit-price rule. A price gap through a limit can leave a triggered order unfilled. Buy limit must be at/above its trigger; sell limit at/below. Quotes older than ten seconds refuse new orders.
+- Fees are an illustrative **0.05% of traded value per fill**, rounded to paise. This is not a calculation of Indian taxes or brokerage.
+- Short equity margin is **100% of current underlying market value**. Short option margin is **30% of NIFTY spot × short units**. Short premium proceeds cannot fund additional risk: available margin subtracts the mark-to-market short liability plus estimated margin. No SPAN calculation, hedge benefit or exchange margin claim is made.
+- Long positions pay premium/value in cash. Pending orders reserve their projected cash/margin use. One pending order per instrument is allowed to prevent pledging the same closing position twice. Other instrument reservations remain blocked at fill time; each fill rechecks affordability.
+- Position P&L marks to last price; realised P&L includes illustrative fees. Equity equals cash plus signed market value. Market changes can produce negative available margin; there is no automatic liquidation or margin-call workflow yet. Orders that strictly reduce an existing position without reversing it remain allowed in an under-margin account.
+- No actual execution latency, partial fills, exchange queue priority, liquidity caps, expiry settlement, corporate actions, historical replay, stop-market orders or actual risk analytics. Demo options move with intrinsic value plus synthetic time value; they are not a calibrated pricing model.
+- This server binds only to localhost. Authentication is implemented; public deployment requires the remaining architecture work.

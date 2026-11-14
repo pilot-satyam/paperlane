@@ -1,0 +1,95 @@
+.invest-root{max-width:1520px;margin:0 auto;padding:4px 0 78px;color:var(--text)}
+.invest-root *{box-sizing:border-box}
+.invest-root button,.invest-root input{font:inherit}
+.invest-root button{cursor:pointer}
+.invest-intro{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:32px 36px;border:1px solid #345043;border-radius:22px;background:radial-gradient(circle at 85% 0%,#26453a 0,transparent 34%),linear-gradient(115deg,#172925,#101c1e 72%)}
+.invest-eyebrow,.invest-panel-title span,.invest-stock-header span,.invest-quote-row span{color:var(--mint);font-size:11px;font-weight:750;letter-spacing:.13em}
+.invest-eyebrow{display:flex;align-items:center;gap:8px}
+.invest-intro h2{font-size:clamp(29px,3vw,44px);letter-spacing:-.045em;margin:12px 0 8px}
+.invest-intro p{color:#b6cbc3;max-width:680px;line-height:1.65;margin:0}
+.invest-intro button,.invest-stock-header button,.invest-research-head button{display:flex;align-items:center;justify-content:center;gap:8px;padding:12px 16px;white-space:nowrap;border:1px solid #5b8068;background:#253e31;color:#c7efd5;border-radius:11px;font-weight:700}
+.invest-intro button:hover,.invest-stock-header button:hover,.invest-research-head button:hover{background:#30533f}
+.invest-note{display:flex;align-items:start;gap:12px;padding:14px 18px;margin:16px 0;color:#c9d8ce;background:#1b2b28;border:1px solid #344b40;border-radius:11px;font-size:13px;line-height:1.5}
+.invest-note svg{flex:none;color:var(--mint);margin-top:1px}
+.invest-api-error{padding:12px 16px;border:1px solid #8b4e4e;background:#3a2325;color:#ffc2c2;border-radius:10px;font-size:12px}
+.invest-metrics{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin:18px 0 22px}
+.invest-metrics article,.invest-panel,.invest-stock-header,.invest-quote-row{background:var(--surface);border:1px solid var(--line);border-radius:16px}
+.invest-metrics article{padding:21px 24px}
+.invest-metrics article>span{display:flex;align-items:center;gap:9px;color:#a6bbb2;font-size:11px;font-weight:750;letter-spacing:.12em}
+.invest-metrics article>span svg{color:var(--mint)}
+.invest-metrics strong{display:block;margin:15px 0 4px;font-size:27px;letter-spacing:-.04em;font-variant-numeric:tabular-nums}
+.invest-metrics small{color:var(--muted);font-size:12px}
+.invest-gain{color:#8de1b5!important}.invest-loss{color:#ed8f98!important}
+.invest-main-grid{display:grid;grid-template-columns:minmax(245px,310px) minmax(0,1fr);gap:17px;align-items:start}
+.invest-panel{padding:22px}
+.invest-panel-title{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:17px}
+.invest-panel-title h3{font-size:18px;letter-spacing:-.025em;margin:5px 0 0}
+.invest-panel-title>b{color:var(--muted);font-size:11px;white-space:nowrap}
+.invest-search{display:flex;align-items:center;gap:9px;padding:0 11px;background:#0d181b;border:1px solid #354541;border-radius:9px;color:#8cae9e}
+.invest-search input{width:100%;height:39px;border:0;outline:0;background:transparent;color:var(--text);min-width:0}
+.invest-stock-list{max-height:610px;overflow:auto;margin:13px -6px 0;padding:0 6px;scrollbar-width:thin}
+.invest-stock-list button,.invest-holdings-list button{display:flex;align-items:center;justify-content:space-between;width:100%;text-align:left;gap:12px;padding:13px 12px;color:var(--text);background:transparent;border:1px solid transparent;border-bottom-color:var(--line);border-radius:9px}
+.invest-stock-list button:hover,.invest-stock-list button.selected,.invest-holdings-list button:hover{background:#20372c;border-color:#416852}
+.invest-stock-list button>span:first-child,.invest-holdings-list button>span:first-child{min-width:0}
+.invest-stock-list button b,.invest-holdings-list button b{display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:12px}
+.invest-stock-list button small,.invest-holdings-list button small{display:block;color:var(--muted);font-size:11px;margin-top:4px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.invest-stock-price{text-align:right;flex:none}
+.invest-stock-price b{font-variant-numeric:tabular-nums}
+.invest-list-note,.invest-list-empty,.invest-chart-note,.invest-research-foot{color:var(--muted);font-size:11px;line-height:1.55}
+.invest-list-note{margin:17px 0 0}.invest-list-empty{padding:14px 6px}
+.invest-analysis{min-width:0;scroll-margin-top:86px}
+.invest-stock-header{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:19px 23px;margin-bottom:11px}
+.invest-stock-header h3{font-size:22px;letter-spacing:-.035em;margin:5px 0}
+.invest-stock-header p{color:var(--muted);margin:0;font-size:12px}
+.invest-quote-row{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));padding:14px 4px;margin-bottom:12px}
+.invest-quote-row>div{padding:5px 15px;border-right:1px solid var(--line)}
+.invest-quote-row>div:last-child{border-right:0}
+.invest-quote-row span{display:block;color:var(--muted);font-size:10px}
+.invest-quote-row b{display:block;margin-top:7px;font-size:17px;font-variant-numeric:tabular-nums}
+.invest-analysis .desk-chart{margin:0}.invest-analysis .desk-chart-canvas{height:370px}
+.invest-chart-note{margin:9px 3px 0}
+.invest-checklist{margin-top:18px}
+.invest-checklist-head{display:flex;align-items:start;justify-content:space-between;gap:18px}
+.invest-checklist-head span{display:flex;align-items:center;gap:7px;color:var(--mint);font-size:11px;font-weight:750;letter-spacing:.13em}
+.invest-checklist-head h3{font-size:19px;letter-spacing:-.025em;margin:8px 0 4px}
+.invest-checklist-head p{color:var(--muted);font-size:12px;line-height:1.5;margin:0}
+.invest-checklist-head strong{white-space:nowrap;color:#b9e9cd;font-size:12px;background:#1b3529;border:1px solid #3d654b;border-radius:8px;padding:7px 9px}
+.invest-checklist progress{display:block;width:100%;height:6px;margin:18px 0;border:0;border-radius:99px;overflow:hidden;background:#253e35}
+.invest-checklist progress::-webkit-progress-bar{background:#253e35}.invest-checklist progress::-webkit-progress-value{background:#7bd9a9;border-radius:99px}.invest-checklist progress::-moz-progress-bar{background:#7bd9a9;border-radius:99px}
+.invest-checklist-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
+.invest-checklist-item{padding:12px;background:#13221f;border:1px solid #31473e;border-radius:10px}
+.invest-checklist-item:hover,.invest-checklist-item:focus-within{border-color:#75b68d;background:#1b2d25}
+.invest-checklist-item.checked{background:#1b3227;border-color:#4c7858}
+.invest-checklist-grid label{display:flex;gap:11px;align-items:start;cursor:pointer}
+.invest-checklist-grid input{accent-color:#8be1b4;width:16px;height:16px;flex:none;margin:1px 0 0}
+.invest-checklist-grid b{display:block;font-size:12px;line-height:1.35}.invest-checklist-grid small{display:block;color:var(--muted);font-size:11px;line-height:1.45;margin-top:4px}
+.invest-lesson-link{display:inline-flex;align-items:center;gap:5px;margin:10px 0 0 27px;padding:3px 0;border:0;background:none;color:var(--mint);font-size:11px;font-weight:750}
+.invest-lesson-link:hover{text-decoration:underline}
+.invest-empty{padding:50px 25px;background:var(--surface);border:1px solid var(--line);border-radius:16px;color:var(--muted);text-align:center}
+.invest-concentration{margin-top:22px}
+.invest-concentration-head{display:flex;align-items:start;justify-content:space-between;gap:24px}
+.invest-concentration-head h3{font-size:22px;letter-spacing:-.035em;margin:9px 0 5px}
+.invest-concentration-head p{font-size:12px;color:var(--muted);margin:0}
+.invest-concentration-summary{display:flex;gap:10px;flex-wrap:wrap}
+.invest-concentration-summary span{font-size:11px;color:#aec7b7;background:#1a3228;border:1px solid #365846;border-radius:9px;padding:9px 11px;white-space:nowrap}
+.invest-concentration-summary b{font-size:14px;color:#d4f3dd;margin-left:5px;font-variant-numeric:tabular-nums}
+.invest-concentration-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:15px 24px;margin-top:22px;max-height:350px;overflow:auto;scrollbar-width:thin}
+.invest-concentration-row{min-width:0}
+.invest-concentration-row>div:first-child{display:flex;justify-content:space-between;gap:12px;align-items:baseline;margin-bottom:7px}
+.invest-concentration-row b{font-size:12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.invest-concentration-row span{color:#aec2b9;font-size:11px;white-space:nowrap;font-variant-numeric:tabular-nums}
+.invest-concentration-track{height:9px;border-radius:99px;background:#263630;overflow:hidden}
+.invest-concentration-track i{display:block;height:100%;border-radius:99px;min-width:2px}
+.invest-concentration-empty{margin:20px 0 0;padding:15px;background:#15251f;border:1px solid #344c3c;border-radius:10px;color:#b6c9bc;font-size:12px;line-height:1.5}
+.invest-research{margin-top:22px}
+.invest-research-head{display:flex;align-items:center;justify-content:space-between;gap:20px}
+.invest-research-head h3{font-size:23px;letter-spacing:-.035em;margin:10px 0 0}
+.invest-research-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:19px}
+.invest-research-grid article{padding:18px;background:#142421;border:1px solid #314940;border-radius:11px}
+.invest-research-grid b{font-size:13px;color:#bae6cc}
+.invest-research-grid p{color:#adbbb4;font-size:12px;line-height:1.6;margin:9px 0 0}
+.invest-research-foot{margin:15px 0 0}
+.invest-holdings{margin-top:22px}.invest-holdings-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 15px}.invest-holdings-list button>span:last-child{text-align:right}
+@media(max-width:1100px){.invest-main-grid{grid-template-columns:1fr}.invest-stock-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));max-height:280px;gap:0 10px}.invest-analysis .desk-chart-canvas{height:320px}}
+@media(max-width:720px){.invest-intro,.invest-stock-header,.invest-research-head{display:block}.invest-intro{padding:25px}.invest-intro button,.invest-stock-header button,.invest-research-head button{margin-top:20px;width:100%}.invest-metrics{grid-template-columns:1fr}.invest-metrics article{padding:17px}.invest-metrics strong{font-size:24px;margin:8px 0 2px}.invest-stock-list{display:block;max-height:330px}.invest-quote-row{grid-template-columns:repeat(2,1fr)}.invest-quote-row>div:nth-child(2){border-right:0}.invest-quote-row>div:nth-child(-n+2){border-bottom:1px solid var(--line)}.invest-quote-row>div{padding:11px}.invest-research-grid,.invest-holdings-list,.invest-checklist-grid{grid-template-columns:1fr}}
+@media(max-width:720px){.invest-concentration-head{display:block}.invest-concentration-summary{margin-top:17px}.invest-concentration-list{grid-template-columns:1fr}}

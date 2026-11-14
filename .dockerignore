@@ -1,0 +1,5 @@
+**
+!db/
+!db/changelog.sql
+!infra/
+!infra/liquibase.Dockerfile

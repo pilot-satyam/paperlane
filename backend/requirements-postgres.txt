@@ -1,0 +1,3 @@
+-r requirements.txt
+# Required for the authenticated PostgreSQL application.
+psycopg[binary]>=3.2,<4

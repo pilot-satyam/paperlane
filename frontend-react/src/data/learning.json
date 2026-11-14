@@ -1,0 +1,810 @@
+{
+  "lessons": [
+    {
+      "id": "basics",
+      "title": "Start with the trading desk",
+      "tag": "01 · FOUNDATIONS",
+      "body": [
+        "A share represents ownership in a company. An exchange brings buyers and sellers together. A trading symbol identifies the security; the exchange and contract details matter too.",
+        "Bid is the price a buyer is offering. Ask is the price a seller is requesting. Buying immediately generally crosses to the ask, while selling crosses to the bid. This gap is the spread. Last traded price (LTP) is a reference, not a guaranteed execution price.",
+        "In Paperlane, your cash and orders are virtual and prices are synthetic. Practise using the controls first. Profits here do not establish that a strategy will work in the real market."
+      ],
+      "example": "If bid is ₹99.90 and ask is ₹100.10, buying then immediately selling 10 shares costs about ₹2 in spread, before charges.",
+      "question": "Which price does an immediate market buy normally use?",
+      "answers": [
+        "The ask",
+        "Your preferred price",
+        "Yesterday’s close"
+      ],
+      "correct": 0,
+      "explain": "A market buy uses available selling prices. This simulator fills at its current ask; real orders can fill at multiple prices."
+    },
+    {
+      "id": "orders",
+      "title": "Choose and manage an order",
+      "tag": "02 · EXECUTION",
+      "body": [
+        "A market order prioritises execution at available prices. A limit order specifies the highest buy price or lowest sell price you accept; it may never fill.",
+        "A stop-limit order has two prices. The trigger activates the limit order, then the limit constrains execution. A gap can leave a triggered order unfilled. A stop is not a guaranteed loss cap.",
+        "An order is an instruction; a trade is a completed fill; a position is what remains open. Cancelling a pending order prevents future execution, but does not undo fills. To exit a long position, sell its remaining quantity. To close a short, buy it back."
+      ],
+      "example": "A sell stop-limit with trigger ₹95 and limit ₹94 can remain unfilled if price gaps straight to ₹90.",
+      "question": "Does cancelling an unfilled order close an existing position?",
+      "answers": [
+        "Yes, always",
+        "No, the position needs an opposite-side fill",
+        "Only for options"
+      ],
+      "correct": 1,
+      "explain": "Pending orders and existing positions are separate. Review the instrument, side and quantity when preparing an exit."
+    },
+    {
+      "id": "pnl",
+      "title": "Understand your result",
+      "tag": "03 · P&L",
+      "body": [
+        "For a long position, gross open P&L is quantity × (current price − average entry). For a short, price decreases help. Paperlane uses signed quantity, so the same formula works for both.",
+        "Net open P&L adds all open positions. Gains on one leg can offset losses on another. A flat combined number does not necessarily mean quotes stopped.",
+        "Closing books a result. Fees and spread reduce what you keep. Paperlane’s Trade report allocates entry and exit fees to each closed portion. Its booked result deducts all fill fees, including fees paid on entries that are still open."
+      ],
+      "example": "Buy 10 at ₹100, sell at ₹102: gross profit ₹20. If allocated charges are ₹3, net profit is ₹17.",
+      "question": "Gross profit is ₹20 and allocated fees are ₹3. What is net profit?",
+      "answers": [
+        "₹23",
+        "₹20",
+        "₹17"
+      ],
+      "correct": 2,
+      "explain": "Net profit subtracts costs. The app’s fees are illustrative, not a current broker quotation."
+    },
+    {
+      "id": "risk",
+      "title": "Write a plan before entering",
+      "tag": "04 · RISK & PROCESS",
+      "body": [
+        "Write down the reason for entering, what would invalidate that reason, your intended exit, and the maximum loss you are prepared to plan for. These are decisions to review, not predictions.",
+        "Position size changes the impact of a price move. A planned stop can help estimate risk, but gaps, slippage and liquidity can make actual losses larger. Margin is collateral, not the maximum amount you can lose.",
+        "Keep practice size consistent while learning. Record why you changed a plan. Judge the process separately from the outcome: a profitable trade can still break your rules, and a planned trade can lose."
+      ],
+      "example": "For shares, 20 units × a planned ₹5 adverse move = ₹100 before costs and slippage. That estimate is not a guaranteed loss limit.",
+      "question": "Does the margin requirement tell you the maximum possible loss?",
+      "answers": [
+        "Yes",
+        "No",
+        "Only if the trade is profitable"
+      ],
+      "correct": 1,
+      "explain": "Margin is a funding requirement. Risk depends on the position and market moves; losses can exceed margin."
+    },
+    {
+      "id": "options",
+      "title": "Read an option contract",
+      "tag": "05 · OPTIONS",
+      "body": [
+        "Calls (CE) and puts (PE) are different contracts. A call gives the buyer the right to buy the underlying at its strike; a put gives the right to sell, subject to contract terms. Expiry and lot size are essential identifiers. Not every stock has options.",
+        "The premium is the option price per unit. Premium × lot size × lots gives the premium amount before charges. ₹6,000 is not a universal minimum. Option value depends on the underlying, time, volatility and other factors.",
+        "Buying an option risks the premium and costs, with exercise and settlement obligations also needing attention. Writing options can create much larger losses; an uncovered short call has theoretically unlimited loss. Avoid treating a SELL button as an exit unless you already own the matching quantity.",
+        "Our snapshot contracts and simulated pricing do not reproduce real liquidity, physical delivery or expiry settlement. Learn those rules before any real transaction."
+      ],
+      "example": "A premium of ₹40 with 125 units per lot costs ₹5,000 for one lot, before charges. The strike is not the price paid.",
+      "question": "What is the premium amount for ₹40 × 125 units × 2 lots?",
+      "answers": [
+        "₹80",
+        "₹5,000",
+        "₹10,000"
+      ],
+      "correct": 2,
+      "explain": "Multiply premium per unit by units per lot and number of lots. Lot sizes vary across contracts."
+    },
+    {
+      "id": "review",
+      "title": "Review a trade without hindsight",
+      "tag": "06 · REFLECTION",
+      "body": [
+        "Start with facts: instrument, direction, size, entry, exit, holding time, charges and result. Then compare the recorded plan with what you did. Do not invent an entry reason after seeing the outcome.",
+        "Ask: Was the order type appropriate? Did I recognise the total quantity? Did I follow my planned exit? Was there a gap between expected and actual costs? Save one specific thing to practise next.",
+        "One trade or a high win rate alone cannot establish an edge. Losing trades can exceed many small gains. Synthetic fills cannot validate real execution or strategy profitability.",
+        "Local reviews in this app use fixed rules and calculated ledger values. They are not AI predictions or personalised trade recommendations. External AI is not connected, and no journal or trade data is sent to an AI provider."
+      ],
+      "example": "“Practise cancelling an unfilled order” is a clearer next step than “be better at trading.”",
+      "question": "Can a winning paper trade prove a real-market strategy works?",
+      "answers": [
+        "Yes",
+        "No",
+        "Only if the profit is large"
+      ],
+      "correct": 1,
+      "explain": "A single simulated result is not evidence of a reliable strategy. Review execution, costs and repeated behaviour."
+    },
+    {
+      "id": "candles",
+      "title": "Read candles and timeframes",
+      "tag": "07 · CHART READING",
+      "body": [
+        "A candle summarises prices during one interval: open, high, low and close. Its body runs between open and close; its wicks show the extremes. A green candle means close exceeded open, not necessarily that price rose from the previous candle.",
+        "A candle still forming can change until its interval ends. A single shape does not reveal the next move. Compare observations across several bars before writing an interpretation.",
+        "In this app, choose 10s, 1m or 5m. Larger intervals combine more observed ticks into each candle. Missing history is not invented, so changing intervals may leave too few bars for an indicator."
+      ],
+      "example": "Open ₹100, high ₹104, low ₹98, close ₹102: the body is ₹100–₹102 and the total range is ₹6.",
+      "question": "What does a candle’s high minus low measure?",
+      "answers": [
+        "Its profit",
+        "Its price range",
+        "Its volume"
+      ],
+      "correct": 1,
+      "explain": "₹104 − ₹98 = ₹6. A candle range is not the profit of a trade."
+    },
+    {
+      "id": "levels",
+      "title": "Mark support, resistance and trends",
+      "tag": "08 · CHART READING",
+      "body": [
+        "Support and resistance describe areas where price previously paused or reversed. Treat them as zones to observe, not walls that price must respect. A trend can be described by a sequence of rising or falling highs and lows.",
+        "Use Level to mark a price and Trend to connect two observed points. Choose anchors you could have identified at the time, rather than selecting only the ones that make a past trade look obvious.",
+        "For practice, note what would contradict your interpretation. A move through a level can reverse again. Drawings are personal annotations; they do not place orders or enforce stops."
+      ],
+      "example": "Price has turned near ₹100 several times. Mark that area and record whether later completed candles stay above or below it; do not label every touch a guaranteed buy.",
+      "question": "Does a drawn support line guarantee a bounce?",
+      "answers": [
+        "Yes, after three touches",
+        "No",
+        "Only on a 5-minute chart"
+      ],
+      "correct": 1,
+      "explain": "A line records an observation. Future buying and selling can carry price through it.",
+      "source": {
+        "label": "CME: Support and resistance",
+        "url": "https://www.cmegroup.com/education/courses/technical-analysis/support-and-resistance"
+      }
+    },
+    {
+      "id": "averages",
+      "title": "Use SMA and EMA thoughtfully",
+      "tag": "09 · INDICATORS",
+      "body": [
+        "SMA averages closing prices over a chosen number of bars. EMA gives more weight to recent closes. Both summarise past prices and lag new moves; neither can promise the next direction.",
+        "A shorter period responds sooner but can fluctuate more. A longer period smooths more history and reacts more slowly. A crossover can repeatedly reverse in a sideways market.",
+        "Open Indicators, choose SMA or EMA, then set period, colour and width. Keep the candle interval unchanged while comparing periods. This chart needs a complete initial window before drawing either average."
+      ],
+      "example": "For closes ₹100, ₹102 and ₹104, SMA 3 is ₹102. SMA 20 on 1-minute candles covers a different set of observations from SMA 20 on 5-minute candles.",
+      "question": "What changes when you increase an SMA period?",
+      "answers": [
+        "It guarantees a better signal",
+        "It uses more closing prices",
+        "It starts predicting prices"
+      ],
+      "correct": 1,
+      "explain": "A larger window uses more history and usually smooths more, with greater lag.",
+      "source": {
+        "label": "Fidelity: Technical indicator guide",
+        "url": "https://www.fidelity.com/learning-center/trading-investing/technical-analysis/technical-indicator-guide/overview?filter=Overlay"
+      }
+    },
+    {
+      "id": "rsi",
+      "title": "Read and customise RSI",
+      "tag": "10 · INDICATORS",
+      "body": [
+        "RSI compares recent upward and downward price changes on a 0–100 scale. A common period is 14. A high reading can persist during an uptrend; a low reading can persist during a downtrend.",
+        "The period changes the calculation. Reference levels such as 30/70 or 40/60 only move the horizontal guides. Moving a guide does not change RSI itself, and crossing a guide is not an automatic trade instruction.",
+        "Choose Indicators → RSI to customise the period and levels. In this app RSI 14 needs at least 15 observed closes. If you chart an option, RSI describes that option’s premium, not the underlying stock."
+      ],
+      "example": "With RSI at 55, changing the upper guide from 70 to 60 leaves the reading at 55. Changing the period from 14 to 40 can change the reading.",
+      "question": "Which setting changes the RSI calculation?",
+      "answers": [
+        "The line colour",
+        "The upper reference level",
+        "The period"
+      ],
+      "correct": 2,
+      "explain": "The period changes the history used; reference levels and colours only change presentation.",
+      "source": {
+        "label": "Fidelity: Relative Strength Index",
+        "url": "https://www.fidelity.com/learning-center/trading-investing/technical-analysis/technical-indicator-guide/rsi"
+      }
+    },
+    {
+      "id": "sizing",
+      "title": "Translate a risk budget into quantity",
+      "tag": "11 · RISK PRACTICE",
+      "body": [
+        "For a simple long share example, planned loss per unit is entry minus planned stop price. Divide a chosen practice loss budget by that distance, then round quantity down to valid units. Include a buffer for costs.",
+        "This arithmetic is only a planning estimate. A stop may fill worse than expected or a stop-limit may not fill. Available funds and contract lot sizes also constrain quantity.",
+        "If the smallest permitted quantity exceeds your planned budget, skipping the trade is a valid decision. Do not move the stop closer merely to make an unaffordable quantity appear acceptable."
+      ],
+      "example": "Practice budget ₹200, entry ₹100, planned stop ₹96: ₹200 ÷ ₹4 = 50 shares before allowing for costs. With a ₹20 cost buffer, round ₹180 ÷ ₹4 down to 45 shares.",
+      "question": "With ₹180 available for price risk and ₹4 risk per share, what quantity fits?",
+      "answers": [
+        "45 shares",
+        "180 shares",
+        "720 shares"
+      ],
+      "correct": 0,
+      "explain": "180 ÷ 4 = 45. This remains a planned estimate, not a guaranteed maximum loss."
+    },
+    {
+      "id": "expectancy",
+      "title": "Look beyond the win rate",
+      "tag": "12 · PERFORMANCE",
+      "body": [
+        "Win rate is the fraction of trades that win. It says nothing by itself about the size of gains, losses or costs. Use net results consistently when comparing your own records.",
+        "A sample average result is total net P&L divided by the number of closed trades or portions you counted. Define that unit consistently: an app’s partial close is not always a separate full round trip.",
+        "Compare average gain, average loss and the largest losing run alongside win rate. A small or selectively chosen sample can mislead; synthetic results are practice evidence, not proof of real execution quality."
+      ],
+      "example": "Six wins of ₹100 and four losses of ₹200 produce ₹600 − ₹800 = −₹200 before costs, despite a 60% win rate.",
+      "question": "Is a 60% win rate enough to establish profitability?",
+      "answers": [
+        "Yes",
+        "No, gain/loss sizes and costs matter",
+        "Only for options"
+      ],
+      "correct": 1,
+      "explain": "Frequent small wins can be outweighed by fewer larger losses."
+    },
+    {
+      "id": "liquidity",
+      "title": "Understand spreads and slippage",
+      "tag": "13 · EXECUTION",
+      "body": [
+        "A spread is the gap between bid and ask. A wider spread increases the cost of entering and immediately exiting. A displayed quote may have limited quantity available.",
+        "Slippage is the difference between an expected execution price and the actual fill. Fast movement and limited liquidity can cause a real market order to fill at several prices. A limit controls the acceptable price but does not guarantee a fill.",
+        "Paperlane uses illustrative fills and does not model order-book depth or partial fills. Record expected versus actual entry and exit prices in practice, while recognising that real execution may be harder."
+      ],
+      "example": "Bid ₹99, ask ₹101: buying 10 at the ask and immediately selling at the bid loses ₹20 before fees, even if the quoted midpoint stays ₹100.",
+      "question": "What does a limit buy at ₹100 control?",
+      "answers": [
+        "It guarantees an immediate fill",
+        "The maximum acceptable price per unit",
+        "The future selling price"
+      ],
+      "correct": 1,
+      "explain": "A buy limit restricts execution price; it can remain unfilled."
+    },
+    {
+      "id": "moneyness",
+      "title": "Separate strike, premium and break-even",
+      "tag": "14 · OPTIONS",
+      "body": [
+        "Strike is the contract’s reference price; premium is what the option trades for. For a call, intrinsic value is the greater of underlying price minus strike or zero. For a put, reverse that subtraction.",
+        "In-the-money means positive intrinsic value. At-the-money is near the underlying price, and out-of-the-money means no intrinsic value. None of these labels alone says whether buying the contract will be profitable.",
+        "For a purchased call, expiry break-even before costs is strike plus premium paid; for a purchased put it is strike minus premium paid. Before expiry, time value and volatility also affect the sale price. These payoff examples exclude settlement obligations; this app does not simulate expiry settlement."
+      ],
+      "example": "Underlying ₹105, call strike ₹100, premium ₹8: intrinsic value is ₹5 and the remaining ₹3 is extrinsic value. Expiry break-even before costs is ₹108.",
+      "question": "What is the call’s expiry break-even for strike ₹100 and premium ₹8?",
+      "answers": [
+        "₹100",
+        "₹92",
+        "₹108"
+      ],
+      "correct": 2,
+      "explain": "Strike plus premium is ₹108 before costs. An in-the-money call can still lose relative to the premium paid."
+    },
+    {
+      "id": "greeks",
+      "title": "Why an option can lose despite the right direction",
+      "tag": "15 · OPTIONS",
+      "body": [
+        "Option premiums respond to several inputs together. Delta estimates sensitivity to a small underlying price change; gamma describes how delta changes. These are local estimates, not fixed promises.",
+        "Theta describes sensitivity to time passing, while vega describes sensitivity to implied volatility. A purchased option can lose value as time passes or implied volatility falls, even when the underlying moves in the expected direction.",
+        "Do not infer the cause of an actual loss from direction alone. Compare recorded premium prices and costs first; without historical volatility and other inputs, an explanation about time decay or volatility is only a possibility. This app does not show a live Greeks feed."
+      ],
+      "example": "A call bought for ₹50 is later sold for ₹45 while the stock rose slightly. The realised premium loss is ₹5 per unit before costs; that price observation alone does not tell you which Greek dominated.",
+      "question": "Can a purchased call fall in value while its underlying rises?",
+      "answers": [
+        "Yes, other pricing inputs also matter",
+        "No, never",
+        "Only if the strike changes"
+      ],
+      "correct": 0,
+      "explain": "Time and implied volatility can offset the effect of a favourable underlying move.",
+      "source": {
+        "label": "Zerodha: Option Greeks",
+        "url": "https://support.zerodha.com/category/account-opening/glossary/futures-and-options/articles/what-are-option-greeks"
+      }
+    },
+    {
+      "id": "routine",
+      "title": "Build a repeatable practice routine",
+      "tag": "16 · HABITS",
+      "body": [
+        "Before a practice trade, check instrument, exchange, expiry where relevant, side, quantity, order type and total amount. Write the idea and intended exit before seeing the outcome.",
+        "After a loss, pause before increasing size or immediately trying to win it back. Record whether the next decision follows your plan or is a reaction to the previous result. A no-trade session can still be productive practice.",
+        "At the end of a session, review one decision that followed your plan and one to improve. Change one practice habit at a time so you can compare sessions. Course completion is a learning milestone, not certification or evidence that you are ready to risk real money."
+      ],
+      "example": "A useful session goal is “verify side and quantity before every order,” rather than “make ₹1,000 today.” The first is a behaviour you can control.",
+      "question": "Which is a process goal?",
+      "answers": [
+        "Recover yesterday’s loss today",
+        "Double size after every loss",
+        "Check side and quantity before submission"
+      ],
+      "correct": 2,
+      "explain": "A process goal describes an action under your control, independent of market outcomes."
+    },
+    {
+      "id": "futures",
+      "title": "Futures and options are different",
+      "tag": "17 · F&O BASICS",
+      "body": [
+        "A future is an agreement to buy or sell an underlying asset at a set price on a future date. Both sides have obligations. An option gives its buyer a right, while the seller takes on an obligation.",
+        "F&O contracts have an expiry date and a lot size. A small amount of money can control a much larger exposure. This can multiply losses as well as gains.",
+        "Paperlane currently lets you practise option orders. It does not model futures, contract settlement or real exchange margin. Use these lessons to understand the language before trading either product with real money."
+      ],
+      "example": "A future on 100 units changes by ₹500 when its price changes ₹5 per unit. Margin paid is not the maximum loss.",
+      "question": "Which side of an option has an obligation if the contract is exercised?",
+      "answers": [
+        "The buyer",
+        "The seller",
+        "Neither side"
+      ],
+      "correct": 1,
+      "explain": "The option buyer has a right; the option seller takes the matching obligation.",
+      "source": {
+        "label": "SEBI: Understanding derivatives",
+        "url": "https://investor.sebi.gov.in/understanding_derivatives.html"
+      }
+    },
+    {
+      "id": "option_side",
+      "title": "Call, put, buy and sell",
+      "tag": "18 · F&O BASICS",
+      "body": [
+        "A call (CE) gives its buyer the right to buy the underlying at its strike. A put (PE) gives its buyer the right to sell at its strike. The option seller, also called the writer, takes the other side.",
+        "BUY CE and BUY PE both pay a premium. SELL CE and SELL PE receive a premium but can face much larger losses. A SELL order also closes an option you already bought if it matches that position and quantity.",
+        "Always check whether SELL is closing your long position or opening a new short position. In Paperlane, the order ticket can open a short when you sell more than you own."
+      ],
+      "example": "You own 1 lot of a CE. Selling that same lot closes it. Selling 2 lots closes 1 lot and opens a short of 1 lot.",
+      "question": "You own one CE lot and press SELL for two lots. What can happen?",
+      "answers": [
+        "Only the long closes",
+        "One lot closes and one short opens",
+        "Nothing"
+      ],
+      "correct": 1,
+      "explain": "Selling more than you own can create a short option position.",
+      "source": {
+        "label": "SEBI: Understanding derivatives",
+        "url": "https://investor.sebi.gov.in/understanding_derivatives.html"
+      }
+    },
+    {
+      "id": "option_chain",
+      "title": "Read an option chain carefully",
+      "tag": "19 · F&O BASICS",
+      "body": [
+        "First choose the underlying and expiry. Each row is a strike price. CE quotes are call premiums and PE quotes are put premiums. Bid is what a buyer offers; ask is what a seller wants.",
+        "The lot size tells you how many units one contract contains. Premium × lot size × number of lots gives the cash premium amount before charges. A low premium does not mean low risk if you are selling an option.",
+        "The chain in Paperlane uses saved contract metadata and synthetic premiums. It does not contain live bid depth, open interest or actual market liquidity. An option listed in the catalogue is not automatically a good trade."
+      ],
+      "example": "Premium ₹40, lot size 125, two lots: ₹40 × 125 × 2 = ₹10,000 before charges.",
+      "question": "What is the premium amount for ₹40 and 125 units in one lot?",
+      "answers": [
+        "₹40",
+        "₹5,000",
+        "₹125"
+      ],
+      "correct": 1,
+      "explain": "₹40 × 125 = ₹5,000 before charges.",
+      "source": {
+        "label": "Zerodha: Option premium",
+        "url": "https://support.zerodha.com/category/account-opening/glossary/futures-and-options/articles/what-is-option-premium"
+      }
+    },
+    {
+      "id": "option_payoff",
+      "title": "Premium, expiry payoff and break-even",
+      "tag": "20 · F&O BASICS",
+      "body": [
+        "At expiry, a call is worth the amount by which the underlying is above its strike, or zero. A put is worth the amount by which the underlying is below its strike, or zero.",
+        "For a bought option, subtract the premium paid to find the simple expiry result per unit. For a written option, the sign is reversed. Multiply by lot size and lots. Real charges and settlement can change the outcome.",
+        "Bought call break-even at expiry is strike plus premium. Bought put break-even is strike minus premium. Before expiry, the option can be sold at a price that also reflects remaining time and implied volatility."
+      ],
+      "example": "Buy a 100 CE for ₹8. If the underlying ends at ₹105, expiry value is ₹5 and the result is a ₹3 loss per unit before charges. Break-even is ₹108.",
+      "question": "A bought call has strike ₹100 and premium ₹8. Its expiry break-even before charges is:",
+      "answers": [
+        "₹92",
+        "₹100",
+        "₹108"
+      ],
+      "correct": 2,
+      "explain": "₹100 + ₹8 = ₹108. Being in the money at ₹105 still leaves a loss.",
+      "source": {
+        "label": "Zerodha: Option premium",
+        "url": "https://support.zerodha.com/category/account-opening/glossary/futures-and-options/articles/what-is-option-premium"
+      }
+    },
+    {
+      "id": "option_risks",
+      "title": "Time, volatility and selling risk",
+      "tag": "21 · F&O BASICS",
+      "body": [
+        "Time to expiry and expected volatility affect option premiums. Theta describes sensitivity to passing time; vega describes sensitivity to implied volatility. Delta estimates sensitivity to a small underlying price move. These values change and are not promises.",
+        "An option buyer can lose the premium paid and costs. An uncovered option seller can lose much more than the premium received; an uncovered short call has theoretically unlimited upside risk.",
+        "Margin is collateral required to carry a position, not a cap on loss. Paperlane uses a simple practice margin rule; it does not reproduce exchange or broker requirements. The app has no live Greeks feed."
+      ],
+      "example": "A call can lose premium even if the stock rises slightly, because time passed or implied volatility fell. You cannot identify the exact cause without more data.",
+      "question": "Does the margin held for a short option show its maximum loss?",
+      "answers": [
+        "Yes",
+        "No",
+        "Only for calls"
+      ],
+      "correct": 1,
+      "explain": "Margin is collateral. Loss can be much larger, especially on an uncovered short call.",
+      "source": {
+        "label": "Zerodha: Option Greeks",
+        "url": "https://support.zerodha.com/category/account-opening/glossary/futures-and-options/articles/what-are-option-greeks"
+      }
+    },
+    {
+      "id": "option_execution",
+      "title": "Costs, liquidity and expiry",
+      "tag": "22 · F&O BASICS",
+      "body": [
+        "An option can show a profit on a chart yet be hard to exit at that price. Wide bid-ask spreads, thin order books, fast movement and charges all affect the actual result.",
+        "Expiry rules differ between index and stock derivatives, and settlement can create obligations. Check the current exchange and broker rules for the exact contract before any real trade.",
+        "Paperlane does not simulate partial fills, real order-book depth or expiry settlement. Its chain prices and fills are synthetic. Use the paper account to practise the workflow, not to infer real-world strategy returns."
+      ],
+      "example": "Bid ₹19 and ask ₹21: buying at the ask and selling immediately at the bid loses ₹2 per unit before fees, even if the quoted midpoint stays ₹20.",
+      "question": "Which price does an immediate sell normally meet?",
+      "answers": [
+        "The ask",
+        "The bid",
+        "The strike"
+      ],
+      "correct": 1,
+      "explain": "An immediate sell generally meets available buying quotes, starting at the bid. Actual fills can vary.",
+      "source": {
+        "label": "NSE: Equity derivatives settlement",
+        "url": "https://www.nseindia.com/static/products-services/equity-derivatives-settlement-mechanism"
+      }
+    },
+    {
+      "id": "premium_parts",
+      "title": "What are you paying for in an option?",
+      "tag": "23 · OPTIONS",
+      "body": [
+        "An option premium has two parts: intrinsic value and time value. Intrinsic value is what the option would be worth if it expired at the current underlying price. Time value is the rest of the premium: what people pay for the chance of a useful move before expiry.",
+        "For a call (CE), intrinsic value is underlying price minus strike, but never below zero. For a put (PE), it is strike minus underlying price, again never below zero. Premium minus intrinsic value equals time value.",
+        "Time value is affected by time left and expected movement, often described through implied volatility (IV). At expiry, there is no time left, so time value is zero. Before expiry, a profitable option position can still have both parts.",
+        "This breakdown helps you ask a better question than ‘Will the stock rise?’: ‘Will it move enough, soon enough, to cover the premium and costs?’"
+      ],
+      "example": "A 100 CE costs ₹12 while the stock is ₹105. Intrinsic value is ₹5 and time value is ₹7. If the stock stayed at ₹105 until expiry, the call would be worth ₹5, a ₹7 loss per unit before costs.",
+      "question": "A 100 CE costs ₹12 and the stock is ₹105. How much is time value?",
+      "answers": ["₹5", "₹7", "₹12"],
+      "correct": 1,
+      "explain": "Intrinsic value is ₹105 − ₹100 = ₹5. Time value is ₹12 − ₹5 = ₹7.",
+      "source": {"label": "Options Industry Council: Options Pricing", "url": "https://prd-web.optionseducation.org/optionsoverview/options-pricing"}
+    },
+    {
+      "id": "theta_decay",
+      "title": "Theta decay: the cost of waiting",
+      "tag": "24 · OPTIONS",
+      "body": [
+        "Theta is an estimate of how much an option premium may change when one day passes and everything else stays the same. A bought option usually has negative theta: waiting tends to reduce its time value. A sold option often benefits from that decay, but adverse price moves can overwhelm it.",
+        "Imagine a call priced at ₹10 with theta of about −₹1 per unit for the next day. If the stock price and implied volatility do not change, the model suggests a premium near ₹9. For a 50-unit lot, that is about ₹50 less value. This is an illustration, not a daily charge or a guaranteed price change.",
+        "Decay is not a straight line. The estimated rate often speeds up as expiry gets close, especially for options near the current underlying price. Theta itself changes with the stock price, time and volatility; multiplying today's theta by many days will usually mislead you.",
+        "For a buyer, ask how soon your expected move must happen. For a seller, never treat theta as free income: the premium you can keep is limited, while a sharp adverse move can create a much larger loss."
+      ],
+      "example": "You buy one 50-unit lot at ₹10. A one-day illustrative theta of −₹1 suggests a ₹50 drop in position value if other inputs hold steady. A strong move in your favour could still make the premium rise.",
+      "question": "Does theta of −₹1 mean the premium will lose exactly ₹1 every day?",
+      "answers": ["Yes, until expiry", "No, it is a changing estimate with other factors held steady", "Only if the option is a put"],
+      "correct": 1,
+      "explain": "Theta is a local estimate. Its size changes, and actual premiums also react to the underlying price and implied volatility.",
+      "source": {"label": "Options Industry Council: Theta", "url": "https://prd-web.optionseducation.org/advancedconcepts/theta"}
+    },
+    {
+      "id": "delta_gamma",
+      "title": "Delta and gamma: speed and acceleration",
+      "tag": "25 · OPTIONS",
+      "body": [
+        "Delta estimates how much an option premium changes for a ₹1 move in the underlying, if other factors stay the same. A call commonly has positive delta; a put commonly has negative delta. Delta describes a small nearby move, not a promise for a large move.",
+        "Gamma describes how delta itself changes when the underlying moves ₹1. Think of delta as speed and gamma as the change in speed. If a call's delta rises as the stock rises, the option can react more strongly to the next rupee of movement.",
+        "Near-expiry, near-the-money options can have high gamma: small underlying moves may change their behaviour quickly. That can help a buyer after a strong favourable move, but it also makes short positions harder to control.",
+        "These are model estimates, not fixed contract terms. A chart of the underlying alone does not tell you the option's exact delta or gamma."
+      ],
+      "example": "A CE with delta 0.40 might gain about ₹0.80 for a ₹2 stock rise if other inputs stay fixed. Gamma means the real gain may differ because delta can change during the move.",
+      "question": "What does gamma mainly measure?",
+      "answers": ["How delta changes as the underlying moves", "Daily brokerage charges", "The maximum loss on a call"],
+      "correct": 0,
+      "explain": "Gamma is the sensitivity of delta to movement in the underlying.",
+      "source": {"label": "Options Industry Council: Volatility and the Greeks", "url": "https://prd-web.optionseducation.org/advancedconcepts/volatility-the-greeks"}
+    },
+    {
+      "id": "iv_vega",
+      "title": "IV and vega: when expectations change",
+      "tag": "26 · OPTIONS",
+      "body": [
+        "Implied volatility (IV) is the level of future movement implied by option prices. It is about the size of possible moves, not whether the underlying will rise or fall. A higher IV usually means more time value in the premium, all else equal.",
+        "Vega estimates how much the option premium changes when IV moves by one percentage point. For example, IV going from 20% to 21% is a one-point rise, not a 1% rise. A vega of ₹2 suggests roughly ₹2 more premium per unit if other inputs stay fixed.",
+        "Before a major event, traders may pay more for uncertain outcomes. After the event, IV can fall sharply. That fall can reduce a bought option's premium even when the underlying moves in your chosen direction. People call this an IV crush.",
+        "Do not infer the exact reason for a past trade's result from price alone. You would need the option's earlier and later IV, Greeks, bid and ask, and costs. Paperlane's synthetic quotes do not supply a live IV or Greeks feed."
+      ],
+      "example": "A call gains about ₹1 from a favourable stock move, but a 2-point IV drop with vega ₹1 per point suggests about ₹2 less premium. Net illustrative change: −₹1 before theta and costs.",
+      "question": "What does a rise in IV tell you by itself?",
+      "answers": ["The stock must rise", "The option market is pricing more expected movement", "The buyer is guaranteed a profit"],
+      "correct": 1,
+      "explain": "IV reflects priced uncertainty about movement, not its direction or a guaranteed outcome.",
+      "source": {"label": "Options Industry Council: Volatility and the Greeks", "url": "https://prd-web.optionseducation.org/advancedconcepts/volatility-the-greeks"}
+    },
+    {
+      "id": "strike_choice",
+      "title": "Choosing a strike and expiry",
+      "tag": "27 · OPTIONS",
+      "body": [
+        "At-the-money (ATM) means the strike is near the current underlying price. An out-of-the-money (OTM) call has a strike above the underlying; an OTM put has a strike below it. An in-the-money (ITM) option already has intrinsic value.",
+        "An OTM option may look cheap because its premium is small. But the underlying must first reach its strike and then move far enough to cover the premium and costs by expiry. Cheap premium can still mean a high chance of losing the entire amount paid.",
+        "A shorter expiry often costs less premium but gives a buyer less time for the expected move and can bring faster theta decay and stronger gamma. A longer expiry can cost more upfront and may react differently to IV.",
+        "Compare contracts by the full amount at risk: premium per unit × lot size × lots, plus costs. Use the option chain's bid and ask, not just the last traded price. There is no universally best strike or expiry."
+      ],
+      "example": "With a stock at ₹100, a 110 CE costing ₹2 needs the stock above ₹112 at expiry to profit before costs. A 100 CE costing ₹8 needs above ₹108. The ₹2 option is cheaper, but needs a larger move.",
+      "question": "Does the lowest premium automatically make an option the safest choice?",
+      "answers": ["Yes", "No, compare the move needed, time left and total amount at risk", "Only for puts"],
+      "correct": 1,
+      "explain": "A low premium can still be lost in full; strike, time, lot size and costs all matter.",
+      "source": {"label": "Options Industry Council: Leverage and Risk", "url": "https://prd-web.optionseducation.org/optionsoverview/leverage-risk"}
+    },
+    {
+      "id": "premium_story",
+      "title": "Why ‘right direction’ can still lose",
+      "tag": "28 · OPTIONS",
+      "body": [
+        "An option premium can move for several reasons at once: the underlying price changes, time passes, IV changes and trading spreads change. You need more than a direction guess to understand a bought option's result.",
+        "Suppose a call has delta 0.40, theta −₹1.50 for roughly one day and vega ₹2 for a one-point IV move. A ₹2 stock rise might add about ₹0.80. One day might subtract ₹1.50, and a one-point IV fall might subtract ₹2. The rough combined change is −₹2.70 per unit, even though the stock rose.",
+        "This is only a nearby sensitivity example. Delta, theta and vega can change during the move; gamma, the bid-ask spread, fees and market conditions also matter. Do not use this addition as a live price prediction.",
+        "When reviewing a trade, separate what you know (entry, exit, quantity, costs) from what you do not know (the true contribution of theta or IV without historical data). Then write one decision you could improve next time."
+      ],
+      "example": "For 50 units, the illustrative −₹2.70 change is −₹135 before spread and charges. Try the premium-move lab below and change only the stock move or IV to see the difference.",
+      "question": "Can a bought call lose value while the stock rises?",
+      "answers": ["No", "Yes, time decay or falling IV can outweigh a small favourable move", "Only if the strike changes"],
+      "correct": 1,
+      "explain": "A favourable underlying move is one input. Time, IV and execution can outweigh it.",
+      "source": {"label": "Options Industry Council: Option Pricing", "url": "https://prd-web.optionseducation.org/optionsoverview/options-pricing"}
+    },
+    {
+      "id": "seller_theta_risk",
+      "title": "Selling options: theta has a price",
+      "tag": "29 · OPTIONS",
+      "body": [
+        "An option seller receives premium first and must later buy the option back, let it expire, or meet settlement obligations. If the option's price falls, buying it back can produce a gain. Time decay may help, but the seller is taking the other side of someone else's right.",
+        "The premium received is the most a single uncovered short option can earn before costs. It is not the maximum loss. A short put can lose heavily if the underlying falls; an uncovered short call has no fixed maximum loss if the underlying keeps rising.",
+        "For example, sell a call at ₹8 and later buy it back at ₹13: that is a ₹5 loss per unit before charges, despite having received ₹8 at entry. Margin held by a broker is collateral, not protection from a larger loss.",
+        "Paperlane's margin and fills are simplified. Before real trading, learn the exact contract, settlement, broker risk rules and position size. A paper profit from theta alone does not show that the risk was small."
+      ],
+      "example": "One 50-unit lot sold at ₹8 brings in ₹400. Closing at ₹13 costs ₹650, so the gross result is −₹250 before charges. The ₹400 received earlier was never a loss limit.",
+      "question": "You sell an option for ₹400. What is the maximum gain before costs on that single short option?",
+      "answers": ["₹400", "Unlimited", "Whatever margin is held"],
+      "correct": 0,
+      "explain": "The original premium is the most you can keep; potential loss can be much larger.",
+      "source": {"label": "Options Industry Council: Leverage and Risk", "url": "https://prd-web.optionseducation.org/optionsoverview/leverage-risk"}
+    },
+    {
+      "id": "greek_checklist",
+      "title": "A five-question option check",
+      "tag": "30 · OPTIONS",
+      "body": [
+        "Before a paper options trade, ask: (1) What is the full premium or possible short-position risk for my lot size? (2) How far must the underlying move, and by when? (3) How much time value am I buying or selling?",
+        "Then ask: (4) Could a change in IV alter the result? (5) What do the bid, ask and costs do to my exit? Write the answers in a simple trade plan. If a number is unavailable, mark it unknown rather than inventing it.",
+        "After closing, calculate the actual price change × units and subtract costs. Compare the result with your plan. Do not claim theta, gamma or IV caused a gain or loss unless you have the historical data to support that claim.",
+        "Try one change at a time in the F&O lab. The goal is to recognise the moving parts and the limits of a simple model before risking real money."
+      ],
+      "example": "A 50-unit CE at ₹12 costs ₹600 before fees. If your plan can tolerate only ₹300 of loss, that position is too large under a full-premium-loss scenario; change size or skip the trade.",
+      "question": "What should you write if the option's historical IV is unavailable?",
+      "answers": ["Guess that IV fell", "Mark IV's contribution unknown", "Assume theta caused the whole result"],
+      "correct": 1,
+      "explain": "A useful review distinguishes measured facts from unknown causes.",
+      "source": {"label": "Options Industry Council: Understanding Options Greeks", "url": "https://prd-web.optionseducation.org/advancedconcepts/understanding-options-greeks"}
+    },
+    {
+      "id": "invest_goal",
+      "title": "Start with a goal, not a stock tip",
+      "tag": "31 · INVESTING",
+      "body": [
+        "Investing begins with what the money is for and when you will need it. A goal in two years and a goal in twenty years can call for very different levels of risk. Share prices can fall sharply just when you need to withdraw.",
+        "Write down your time horizon, the amount you can leave invested, and how much loss you could tolerate without abandoning your plan. Money needed soon should not depend on a stock recovering in time.",
+        "Safety, potential return and ease of selling all matter. A high possible return does not make an investment suitable for every goal. Paperlane lets you practise decisions with virtual money, but its prices do not tell you what a real investment will return."
+      ],
+      "example": "You plan to use ₹50,000 for course fees next year. A stock that might grow over ten years still may be unsuitable for that near-term bill because it could be down next year.",
+      "question": "What should you decide before choosing an investment?",
+      "answers": ["The goal, time horizon and risk you can accept", "Only which stock rose most yesterday", "Which social-media post has the most views"],
+      "correct": 0,
+      "explain": "Your goal and time horizon help determine whether the investment's risk fits your needs.",
+      "source": {"label": "SEBI Investor: Things to consider before investing", "url": "https://investor.sebi.gov.in/investment-thingsbeforeinv.html"}
+    },
+    {
+      "id": "invest_share",
+      "title": "A share is a piece of a business",
+      "tag": "32 · INVESTING",
+      "body": [
+        "A share represents ownership in a company. Over a long period, your result depends on both the business and the price you paid for it. The market price can move much faster than the business itself changes.",
+        "A shareholder can gain if the sale price rises and may also receive dividends if the company chooses to pay them. Neither is guaranteed. A falling price is a real risk even when a company has a familiar brand.",
+        "Before buying, explain in one sentence what the company sells, who pays it, and why customers might keep paying. If you cannot explain the business yet, put it on a research list rather than rushing to buy."
+      ],
+      "example": "Buying one share at ₹100 and later selling at ₹115 creates a ₹15 price gain before costs. If the company paid a ₹2 dividend during that period, that is another return component; prices and dividends are both uncertain.",
+      "question": "What does buying a company share mean?",
+      "answers": ["You own a small part of the company", "The company guarantees a return", "You can never lose the amount invested"],
+      "correct": 0,
+      "explain": "A share is ownership. Its market value and any dividends can change.",
+      "source": {"label": "SEBI Investor: Due diligence", "url": "https://investor.sebi.gov.in/due_diligence.html"}
+    },
+    {
+      "id": "invest_compound",
+      "title": "Compounding and the years in between",
+      "tag": "33 · INVESTING",
+      "body": [
+        "Compounding means future growth can build on earlier growth. It works most clearly when gains stay invested. The longer the period, the more important the path of returns becomes.",
+        "A neat annual percentage in a calculator is only an illustration. Shares do not pay a fixed rate each year: there can be losing years, flat years and strong years. Costs, taxes and inflation can reduce what your money will buy later.",
+        "You cannot control market returns, but you can control how much you add, your costs, your mix of investments and whether you stay within a plan that fits your goal."
+      ],
+      "example": "₹10,000 growing at a hypothetical 10% for two years becomes ₹11,000, then ₹12,100 because the second ₹1,000 gain also earns a return. A real stock will not follow this smooth path.",
+      "question": "Does an example showing 10% annual growth mean a stock will return 10% every year?",
+      "answers": ["Yes", "No, real returns vary and can be negative", "Only for large companies"],
+      "correct": 1,
+      "explain": "A compounding calculation shows how growth could build; it is not a forecast or guarantee.",
+      "source": {"label": "SEBI Investor: Things to consider before investing", "url": "https://investor.sebi.gov.in/investment-thingsbeforeinv.html"}
+    },
+    {
+      "id": "invest_statements",
+      "title": "Read three business numbers together",
+      "tag": "34 · INVESTING",
+      "body": [
+        "A company's income statement shows revenue and profit over a period. Its balance sheet shows what it owns and owes at a point in time. Its cash-flow statement shows cash coming in and going out. Start with these three views together.",
+        "Rising sales can be encouraging, but ask whether profit also rises and whether operations generate cash. A company can report profit while cash is tied up in unpaid customer bills or inventory. Debt may help expansion, but too much can make a downturn harder to survive.",
+        "Compare several reporting periods and read the notes and company announcements. One quarter alone can be noisy. Paperlane does not currently provide audited company statements, so verify figures from official filings before treating them as facts."
+      ],
+      "example": "Company A reports rising profit, but operating cash flow stays negative and debt climbs. The headline profit is a reason to investigate further, not enough evidence to buy.",
+      "question": "Why compare profit with cash flow?",
+      "answers": ["Reported profit and cash received can differ", "Cash flow is always equal to profit", "Only the share price matters"],
+      "correct": 0,
+      "explain": "Profit is an accounting measure; cash flow helps show whether the business is generating cash.",
+      "source": {"label": "SEBI Investor: Due diligence", "url": "https://investor.sebi.gov.in/due_diligence.html"}
+    },
+    {
+      "id": "invest_valuation",
+      "title": "A good company can be a costly share",
+      "tag": "35 · INVESTING",
+      "body": [
+        "Valuation compares the share price with what the business earns or owns. The price-to-earnings ratio (P/E) is share price divided by earnings per share. It offers a quick comparison, not a complete verdict.",
+        "A high P/E may reflect expectations of future growth; a low P/E may reflect real business trouble. Compare companies in similar businesses, inspect earnings quality and debt, and ask what growth the price already assumes. P/E is not useful when earnings are zero or negative.",
+        "Build a range of possible outcomes instead of one confident target. If your estimate needs perfect growth for many years, small disappointments could hurt your result. Paperlane's synthetic price is not a fair-value estimate."
+      ],
+      "example": "At ₹200 a share and ₹10 earnings per share, P/E is 20. If earnings fall to ₹5 while price stays ₹200, P/E becomes 40. The price alone did not reveal that change in valuation.",
+      "question": "A stock has a low P/E. What can you conclude from that alone?",
+      "answers": ["It is guaranteed cheap", "Very little; check business quality and why earnings or price differ", "It must become a multibagger"],
+      "correct": 1,
+      "explain": "P/E is one comparison tool. Earnings quality, risk and future prospects also matter.",
+      "source": {"label": "Investor.gov: Price-earnings ratio", "url": "https://www.investor.gov/introduction-investing/investing-basics/glossary/price-earnings-pe-ratio"}
+    },
+    {
+      "id": "invest_research",
+      "title": "Build a simple company research sheet",
+      "tag": "36 · INVESTING",
+      "body": [
+        "Start with five questions: What does the company sell? Why do customers choose it? Are sales, profit and operating cash improving over time? How much debt does it carry? What could make your explanation wrong?",
+        "Look at official filings, annual reports and exchange announcements. Compare the company with peers in the same industry. A popular product or rising stock chart does not prove that shareholders are paying a sensible price.",
+        "Separate evidence from your guess. ‘Cash from operations rose for three years’ is a checkable claim. ‘This will be the next multibagger’ is a prediction. Keep both in your notes with their sources and dates."
+      ],
+      "example": "Your note might read: ‘The company sells industrial pumps. Revenue grew in three annual reports, but debt also rose. I will check cash generation and customer concentration before deciding.’",
+      "question": "Which note is easiest to verify?",
+      "answers": ["This stock will double soon", "Operating cash flow rose in the last three annual reports", "Everyone says the company is great"],
+      "correct": 1,
+      "explain": "A dated figure from company filings is evidence you can recheck.",
+      "source": {"label": "SEBI Investor: Due diligence", "url": "https://investor.sebi.gov.in/due_diligence.html"}
+    },
+    {
+      "id": "invest_diversify",
+      "title": "Diversification: do not bet the goal on one name",
+      "tag": "37 · INVESTING",
+      "body": [
+        "Diversification means spreading money across investments that do not all depend on the same company or event. It can reduce the damage if one company performs badly. It cannot stop a whole-market fall.",
+        "Owning many shares is not automatically diversified. Ten companies in one industry may suffer from the same problem. Look at companies, industries and, where suitable for your goal, other asset types.",
+        "A diversified fund is one way to hold a basket of investments; direct shares require you to choose and monitor the companies yourself. Understand the fund's holdings, costs and risks before using it. Paperlane currently practices shares and options, not fund units."
+      ],
+      "example": "If 50% of a ₹1 lakh portfolio is in one stock, a 40% fall in that stock cuts the whole portfolio by about 20% before other changes. Position size matters even when the idea sounds strong.",
+      "question": "What can diversification usually reduce?",
+      "answers": ["Damage from one company's failure", "All market risk", "The need to research anything"],
+      "correct": 0,
+      "explain": "Spreading holdings can reduce company-specific damage, but broad market declines can still affect many holdings.",
+      "source": {"label": "SEBI Investor: Managing investment risk", "url": "https://investor.sebi.gov.in/investment_risk_managment.html"}
+    },
+    {
+      "id": "invest_chart",
+      "title": "Use charts as one part of the story",
+      "tag": "38 · INVESTING",
+      "body": [
+        "A chart shows what buyers and sellers paid over time. It can help you see a trend, recent volatility and how far a price has moved. It cannot show whether a company's cash flow, debt or governance is healthy.",
+        "For an investor, chart intervals should match the question. A ten-second candle is useful for practising market mechanics; it says little about a five-year business idea. Compare a longer price history with dated financial reports and important company events.",
+        "Moving averages, RSI and drawn levels are descriptions of past prices. They can organise an observation, but they do not prove that a business is undervalued or that a past trend will continue. Paperlane's chart uses synthetic prices, so its patterns are practice examples."
+      ],
+      "example": "A share looks strong on a one-month chart. Before treating it as a long-term investment, check several years of filings and ask whether the price now assumes unusually fast growth.",
+      "question": "What can a price chart tell you by itself about company debt?",
+      "answers": ["The exact amount", "Nothing reliable; check the financial statements", "Whether debt is guaranteed to fall"],
+      "correct": 1,
+      "explain": "Debt comes from company disclosures. A chart records prices, not the balance sheet.",
+      "source": {"label": "SEBI Investor: Due diligence", "url": "https://investor.sebi.gov.in/due_diligence.html"}
+    },
+    {
+      "id": "invest_multibagger",
+      "title": "The multibagger question: what could go wrong?",
+      "tag": "39 · INVESTING",
+      "body": [
+        "A ‘multibagger’ is a share that rose to several times its earlier price. It is easy to spot one after the rise. It is hard to know in advance which young or small company will survive, grow and reward shareholders.",
+        "Look for a business you can explain, evidence of durable demand, improving cash generation, manageable debt and management behaviour you can verify. Then ask how much success is already built into the share price. These are research questions, not a screen that finds winners.",
+        "Small or popular shares can be volatile and difficult to sell at the displayed price. Stories about huge gains often leave out failed picks. Never plan a goal around one stock multiplying; size the position so being wrong does not destroy the goal."
+      ],
+      "example": "A share rising from ₹50 to ₹250 became a five-bagger for someone who bought at ₹50 and held. Buying at ₹250 is a new decision with a new risk and price; the earlier fivefold rise is not a forecast.",
+      "question": "A stock rose fivefold in the past. What does that prove about buying it now?",
+      "answers": ["It will rise fivefold again", "Nothing about future return without new research", "It cannot fall"],
+      "correct": 1,
+      "explain": "Past gains do not guarantee future gains. Assess today's business, valuation and risk.",
+      "source": {"label": "SEBI Investor: Avoid get-rich-quick schemes", "url": "https://investor.sebi.gov.in/beware-of-investment.html"}
+    },
+    {
+      "id": "invest_review",
+      "title": "Review an investment without watching every tick",
+      "tag": "40 · INVESTING",
+      "body": [
+        "Write a short reason before you paper-buy: what you believe about the business, the evidence, what you paid and what would change your mind. Put a date on your evidence so you can tell a new fact from an old assumption.",
+        "Review when new financial results or company announcements matter to your idea, and at a regular interval that fits your goal. Ask whether the business case changed, whether the position became too large in your portfolio, and whether your goal or time horizon changed.",
+        "Price movement alone is not always a reason to act. It can, however, reveal that your position is larger or more volatile than you can tolerate. In Paperlane, use the investing dashboard and journal to practise this process; verify real business data from official sources outside the synthetic market."
+      ],
+      "example": "Your note says: ‘I expect cash flow to improve over two years; I will review each annual report. If debt rises sharply while cash flow weakens, I will revisit the idea.’ That gives you a test beyond today's price.",
+      "question": "Which review question is most useful for a long-term holding?",
+      "answers": ["Did the business evidence or my goal change?", "Did the last candle turn green?", "How often did I refresh the chart?"],
+      "correct": 0,
+      "explain": "A long-term review connects new evidence to your original reason and goal.",
+      "source": {"label": "SEBI Investor: Things to consider before investing", "url": "https://investor.sebi.gov.in/investment-thingsbeforeinv.html"}
+    }
+  ],
+  "exercises": [
+    {
+      "id": "limit",
+      "title": "Place a limit order",
+      "steps": "Choose a stock, select LIMIT, enter one valid lot and a buy price below the ask. Submit only if you intend to practise. Check whether it is pending or filled.",
+      "target": "orders"
+    },
+    {
+      "id": "cancel",
+      "title": "Cancel a pending order",
+      "steps": "Open Orders, find a pending limit order and cancel it. Confirm its status and that reserved funds are released. A fill that already occurred cannot be cancelled.",
+      "target": "orders"
+    },
+    {
+      "id": "roundtrip",
+      "title": "Complete a small round trip",
+      "steps": "Buy a small virtual position, then use Prepare exit. Review the opposite side and exact quantity before submitting. Find the resulting closed portion in Trade report.",
+      "target": "report"
+    },
+    {
+      "id": "journal",
+      "title": "Reflect on one decision",
+      "steps": "Write your entry reason, planned exit and one lesson in Trading journal. Describe what happened without assuming that a good result means a good decision.",
+      "target": "journal"
+    },
+    {
+      "id": "candles",
+      "title": "Compare two candle intervals",
+      "steps": "Open Terminal and compare 10s with 1m for the same instrument. Note how the candle shapes and number of observed bars change. No order is needed.",
+      "target": "terminal"
+    },
+    {
+      "id": "indicator",
+      "title": "Customise and compare an indicator",
+      "steps": "In Terminal, add SMA 10, then edit it to SMA 40. Keep the timeframe fixed. Note the difference in responsiveness; wait for enough observed bars if necessary.",
+      "target": "terminal"
+    },
+    {
+      "id": "levels",
+      "title": "Mark a level before the next move",
+      "steps": "In Terminal, use Level to mark a prior turning area. Write in your journal what would contradict your interpretation, then observe new candles without moving the original line.",
+      "target": "terminal"
+    },
+    {
+      "id": "costs",
+      "title": "Explain a result after costs",
+      "steps": "Open Trade report. Pick a closed portion, calculate gross price change × quantity, then subtract its allocated charges. Compare with the displayed net result.",
+      "target": "report"
+    }
+  ]
+}

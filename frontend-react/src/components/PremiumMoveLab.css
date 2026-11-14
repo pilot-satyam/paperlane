@@ -1,0 +1,24 @@
+.learn-premium-lab{padding:30px;margin:22px 0}
+.learn-premium-heading{display:flex;align-items:start;justify-content:space-between;gap:18px}
+.learn-premium-heading .learn-overline{margin-bottom:12px}
+.learn-premium-heading h3{font-size:24px;letter-spacing:-.03em;margin:0 0 9px}
+.learn-premium-heading p{max-width:750px;color:var(--muted);margin-bottom:24px}
+.learn-premium-badge{border:1px solid #4c7160;background:#1d352c;color:var(--mint);font-size:11px;font-weight:700;padding:8px 12px;border-radius:999px;white-space:nowrap}
+.learn-premium-content{display:grid;grid-template-columns:minmax(0,1fr) minmax(260px,.85fr);gap:22px}
+.learn-premium-controls,.learn-premium-result{padding:24px;background:#121e20;border:1px solid var(--line);border-radius:14px}
+.learn-premium-controls>label:not(.learn-premium-check){display:flex;justify-content:space-between;gap:12px;color:#c2d1cc;font-weight:650}
+.learn-premium-controls>label strong{color:var(--text)}
+.learn-premium-controls input[type=range]{width:100%;margin:15px 0 0;accent-color:var(--mint)}
+.learn-premium-range{display:flex;justify-content:space-between;color:var(--muted);font-size:11px;margin-bottom:24px}
+.learn-premium-check{display:flex;align-items:center;gap:10px;color:var(--text);font-weight:650}
+.learn-premium-check input{accent-color:var(--mint);width:16px;height:16px}
+.learn-premium-prompt{margin:15px 0 0;padding:12px 14px;border-left:3px solid var(--mint);background:#1c302a;color:#c6ded2;font-size:12px}
+.learn-premium-effect,.learn-premium-total{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:11px 0;border-bottom:1px solid var(--line)}
+.learn-premium-effect span{color:var(--muted)}
+.learn-premium-effect strong,.learn-premium-total strong{font-variant-numeric:tabular-nums}
+.learn-premium-total{padding-top:21px;font-weight:750;border:0}
+.learn-premium-total strong{font-size:23px}
+.learn-premium-result p{margin:6px 0 0;color:var(--muted)}
+.learn-premium-result p b{color:var(--text)}
+.learn-premium-limit{font-size:12px;color:var(--muted);margin:20px 0 8px}
+@media(max-width:760px){.learn-premium-lab{padding:20px}.learn-premium-content{grid-template-columns:1fr}.learn-premium-heading{display:block}.learn-premium-badge{display:inline-block;margin-bottom:20px}}

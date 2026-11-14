@@ -1,0 +1,6 @@
+.pa-position-kind-row{display:flex;align-items:center;flex-wrap:wrap;gap:6px;margin-top:8px}
+.pa-position-kind-row .pa-position-side,.pa-position-kind-row .pa-position-contract{display:inline-flex;align-items:center;white-space:nowrap;margin:0;padding:4px 7px;border-radius:6px;font-size:10px;font-weight:800;letter-spacing:.04em;line-height:1.1}
+.pa-position-kind-row .pa-position-side.buy{background:#a6e6bd22;color:#a7ebc1;border:1px solid #75b99266}
+.pa-position-kind-row .pa-position-side.sell{background:#ff9da022;color:#ffb7b9;border:1px solid #d57c8066}
+.pa-position-kind-row .pa-position-contract{background:#253b39;color:#b8d9d1;border:1px solid #466660}
+.pa-position-kind-row .pa-position-quantity{display:inline;margin:0;color:#a5b8ac;font-size:11px;white-space:nowrap}

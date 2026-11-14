@@ -1,0 +1,14 @@
+TradingView Lightweight Charts 5.0.9 (pinned, local standalone distribution)
+
+Sources:
+https://unpkg.com/lightweight-charts@5.0.9/dist/lightweight-charts.standalone.production.js
+https://unpkg.com/lightweight-charts@5.0.9/LICENSE
+https://raw.githubusercontent.com/tradingview/lightweight-charts/v5.0.9/NOTICE
+
+Apache License 2.0; see LICENSE and NOTICE.
+Official API documentation: https://tradingview.github.io/lightweight-charts/docs/5.0
+
+SHA-256:
+e6bd6516d9ab9cb897c0d6438e3fe1126f2fdce07e68c23836e84d527de81f52  lightweight-charts.standalone.production.js
+70c9d5382506dd184465425c08a99ad9bd6d9ac1313c252968ba0b585e5ef823  LICENSE
+f76c6afab94884448f0426e30d6e9d555ca7247894cd3484e477d2f87513036e  NOTICE
