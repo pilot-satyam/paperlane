@@ -23,27 +23,3 @@
 @media(max-width:1400px){.header-inner .demo-pill,.header-inner .profile-trigger-name{display:none}}
 @media(max-width:1180px){.app-nav{display:none;position:absolute;top:70px;left:0;right:0;padding:15px 19px;background:#0d1618;border-bottom:1px solid var(--line);grid-template-columns:repeat(2,1fr);box-shadow:0 24px 40px #0008}.app-nav.open{display:grid}.app-nav button{font-size:13px}.mobile-menu{display:grid;place-items:center}.header-search{margin-left:auto;flex:0 1 330px}}
 @media(max-width:600px){.header-search{margin-left:auto}.header-inner{gap:10px}}
-
-/* Desktop market-lab layout inspired by the Paperlane prototype. */
-:root{--bg:#0d1218;--surface:#192127;--surface-2:#202b31;--line:#303e42;--text:#eef6f2;--muted:#9eafa9;--mint:#48e3b5}
-.app-shell{background:radial-gradient(ellipse 1050px 400px at 46% -180px,#23534466,transparent 75%),#0d1218}
-.app-header{height:76px;background:#11181edc;border-bottom-color:#34423b;box-shadow:0 8px 32px #00000021}
-.brand-icon{background:#45e5b6;color:#0d3127;border-radius:10px;box-shadow:0 0 25px #3ce8b120}
-.app-nav button{border-radius:10px;min-height:40px;transition:background .2s,color .2s,transform .2s}
-.app-nav button:hover{transform:translateY(-1px);background:#26372f}
-.app-nav button.active{background:#254738;color:#73edbd}
-.demo-pill{background:#193c2e;border-color:#3c6d52;color:#86edba}
-.page-terminal .hero{padding:24px 0 19px;align-items:center}
-.page-terminal .hero h1{font-size:clamp(26px,2.4vw,34px);letter-spacing:-.045em}
-.page-terminal .hero p:not(.eyebrow){font-size:12px}
-.page-terminal .eyebrow{margin-bottom:8px}
-.page-terminal .hero-actions{gap:7px}
-.page-terminal .guide-button{padding:10px 13px;font-size:11px}
-.page-terminal .metric-grid{gap:10px;margin-bottom:14px}
-.page-terminal .metric-card{min-height:94px;padding:14px 18px;background:#192228;border-color:#344342}
-.page-terminal .metric-label{margin-bottom:11px}
-.page-terminal .metric-card strong{font-size:23px}
-.page-terminal .metric-card small{margin-top:5px}
-@media(max-width:1180px){.app-nav{top:76px}}
-@media(max-width:600px){.app-header{height:70px}.app-nav{top:70px}.page-terminal .hero{align-items:flex-start}.page-terminal .metric-card{min-height:100px}.page-terminal .metric-card strong{font-size:19px}}
-@media(prefers-reduced-motion:reduce){.app-nav button{transition:none}}

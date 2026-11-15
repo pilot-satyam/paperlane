@@ -216,36 +216,3 @@
 .desk-finder-pagination{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:14px 25px;border-top:1px solid #34484b;color:#91aaa4;font-size:11px}
 .desk-finder-pagination button{border:1px solid #3c5651;background:#21352f;border-radius:7px;color:#c8e6d3;padding:8px 12px;font-size:11px;font-weight:700}
 @media(max-width:640px){.desk-finder-head,.desk-finder-search,.desk-finder-pagination{padding-left:15px;padding-right:15px}.desk-finder-notice{margin-left:15px;margin-right:15px}.desk-finder-coverage{padding-left:15px;padding-right:15px}.desk-finder-row{grid-template-columns:minmax(0,1fr) 116px;gap:6px;padding:10px 15px}.desk-finder-meta{grid-column:1;grid-row:2}.desk-finder-row button,.desk-finder-view-only{grid-column:2;grid-row:1/3}}
-
-/* Compact desktop trading workspace. The watchlist, chart, chain and ticket keep their existing behavior. */
-.desk{--desk-mint:#48e3b5;--desk-line:#354249;--desk-muted:#a3b5b2;grid-template-columns:230px minmax(0,1fr) 326px;gap:12px}
-.desk-surface{background:#192127;border-color:#303e42;border-radius:16px;box-shadow:0 12px 35px #00000020}
-.desk-watch,.desk-ticket{top:90px}
-.desk-watch-head,.desk-ticket-head{background:#1c282d;padding:18px 17px}
-.desk-watch-head h3,.desk-ticket-head h3{font-size:17px}
-.desk-watch-item{min-height:62px}
-.desk-watch-item:hover,.desk-watch-item.active{background:#243a34}
-.desk-watch-item.active{border-left-color:#47e5ae}
-.desk-chart-head{padding:20px 23px 17px}
-.desk-chart-head h2{font-family:Manrope,sans-serif;font-size:24px;letter-spacing:-.055em}
-.desk-price-block strong{color:#55e2b5}
-.desk-chart-controls{background:#1b242b;border-color:#344046}
-.desk-chart-canvas{height:410px;background:#121a20}
-.desk-segment{background:#151e24;border-color:#3a4a4c}
-.desk-segment button.active,.desk-draw-actions button.active{background:#2a5746;color:#87edbd}
-.desk-chain-controls{background:#1c282d}
-.desk-chain th{background:#1d2c32}
-.desk-chain tr.desk-atm{background:#244239}
-.desk-chain tr.desk-atm .desk-strike{background:#2e5846;color:#bdf5d2}
-.desk-chain td button:hover{border-color:#4be3af;background:#2b4e3e}
-.desk-ticket{border-color:#426152}
-.desk-ticket-body{padding:16px}
-.desk-estimate{background:#20382f;border-color:#466957}
-.desk-estimate strong{font-family:Manrope,sans-serif;color:#eaf9ee}
-.desk-side .buy.active,.desk-submit.buy{background:#40e3b3;color:#083428}
-.desk-submit{min-height:48px;border-radius:11px;font-size:13px}
-.desk-submit:hover{filter:brightness(1.05)}
-.desk-quote-strip{background:#1c282b}
-@media(max-width:1400px){.desk{grid-template-columns:205px minmax(0,1fr) 290px}}
-@media(max-width:1100px){.desk{grid-template-columns:205px minmax(0,1fr)}.desk-ticket{top:auto}}
-@media(max-width:760px){.desk{display:flex;flex-direction:column}.desk-watch,.desk-ticket{top:auto}.desk-chart-canvas{height:340px}}
