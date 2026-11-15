@@ -23,3 +23,16 @@
 @media(max-width:1400px){.header-inner .demo-pill,.header-inner .profile-trigger-name{display:none}}
 @media(max-width:1180px){.app-nav{display:none;position:absolute;top:70px;left:0;right:0;padding:15px 19px;background:#0d1618;border-bottom:1px solid var(--line);grid-template-columns:repeat(2,1fr);box-shadow:0 24px 40px #0008}.app-nav.open{display:grid}.app-nav button{font-size:13px}.mobile-menu{display:grid;place-items:center}.header-search{margin-left:auto;flex:0 1 330px}}
 @media(max-width:600px){.header-search{margin-left:auto}.header-inner{gap:10px}}
+
+/* Keep desktop navigation visible when the browser window is moderately narrow. */
+@media(min-width:851px) and (max-width:1180px){
+  .app-header{height:116px}
+  .header-inner{height:116px;display:grid;grid-template-columns:auto minmax(180px,1fr) auto;grid-template-rows:46px 40px;align-content:center;column-gap:18px;row-gap:6px}
+  .header-inner .brand{grid-column:1;grid-row:1}
+  .header-inner .header-search{grid-column:2;grid-row:1;justify-self:end;align-self:center;width:min(400px,100%);min-width:0;margin-left:0;flex:none}
+  .header-inner .header-actions{grid-column:3;grid-row:1;justify-self:end}
+  .header-inner .app-nav,.header-inner .app-nav.open{grid-column:1/-1;grid-row:2;position:static;display:flex;align-items:center;justify-content:flex-start;gap:4px;min-width:0;width:100%;padding:0;background:transparent;border:0;box-shadow:none;overflow-x:auto;scrollbar-width:thin}
+  .header-inner .app-nav button{font-size:12px;padding:8px 12px;flex:none}
+  .header-inner .mobile-menu{display:none}
+  .desk-watch,.desk-ticket{top:130px}
+}
